@@ -13,3 +13,14 @@
     - image_path : 画像の保存されているpath
     - findings_jp : 日本語の初見
     - impression_jp : 日本語の診断結果
+- 保存先
+    - csvファイル
+    - ./data/csv/に保存
+
+2. 環境を作成する
+- uvをinstallする
+- uv環境を作成する
+```
+uv sync
+```
+
