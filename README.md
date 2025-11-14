@@ -7,7 +7,7 @@
 
 # 使い方
 ## データセットを用意する
-1. 読影レポートを用意する
+### 読影レポートを用意
 - 必要なカラム（それぞれの症例に対するレポート）
     - image_name : CT, MRIの画像, JPGやPNG推奨。DICOM形式はエラーが起こる
     - image_path : 画像の保存されているpath
@@ -17,10 +17,22 @@
     - csvファイル
     - ./data/csv/に保存
 
-2. 環境を作成する
-- uvをinstallする
-- uv環境を作成する
+## 環境を作成する
+1. uvをinstall
+2. uv環境を作成
 ```
 uv sync
 ```
+3. .envをfolderの直下に作成し、OPENAI_KEYを保存する
+```
+OPENAI_API_KEY="your_key"
+```
 
+## 読影レポート埋め込みを作成する(embedding)
+- create_emb.ipynbを実行。./data/embに全てのレポートにタウするembeddingが生成される
+
+## アプリケーションを実行する
+```
+. .venv/bin/active
+streamlit run main.py
+```
