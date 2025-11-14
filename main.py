@@ -4,10 +4,9 @@ import faiss
 from dotenv import load_dotenv
 from openai import OpenAI
 import pandas as pd
-import numpy as np
 from PIL import Image
 from pathlib import Path
-from src.utils import explain_search_word
+from src.utils import explain_search_word, create_query
 
 
 def main():
@@ -22,7 +21,7 @@ def main():
 
     with st.sidebar:
         st.header("設定")
-        top_k = st.slider("Top-K", 1, 20, 5)
+        top_k = st.slider("表示数", 1, 20, 5)
     
     st.subheader("検索")
     researh_word = st.text_input("疾患など (MR/CT関連)", value="")
@@ -30,13 +29,8 @@ def main():
 
     if btn and researh_word.strip():
         with st.spinner("検索中…"):
-            res = client.embeddings.create(
-                model="text-embedding-3-large",
-                input=researh_word
-            )
-            query = np.array(res.data[0].embedding, dtype="float32").reshape(1, -1)
+            query = create_query(client, researh_word)
             distances, indices = report_index.search(query, top_k)
-
             query_meaning = explain_search_word(client, researh_word)     
 
         scores = distances[0]

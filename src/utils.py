@@ -1,3 +1,5 @@
+import numpy as np
+
 SYSTEM_PROMPT = """
 あなたは放射線診断専門のアシスタントです。
 入力される検索語は、MRやCTに関連する疾患名・所見名・検査目的などの単語または短い文章です。
@@ -27,3 +29,12 @@ def explain_search_word(client, query: str) -> str:
     if len(text) > 120:
         text = text[:120].rstrip("、。・,.;：:!?！？」』 ") + "…"
     return text
+
+def create_query(client, researh_word):
+    res = client.embeddings.create(
+        model="text-embedding-3-large",
+        input=researh_word
+    )
+    query = np.array(res.data[0].embedding, dtype="float32").reshape(1, -1)
+
+    return query
