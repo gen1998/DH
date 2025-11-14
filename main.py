@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 from pathlib import Path
+from src.utils import explain_search_word
 
 
 def main():
@@ -34,13 +35,16 @@ def main():
                 input=researh_word
             )
             query = np.array(res.data[0].embedding, dtype="float32").reshape(1, -1)
-            distances, indices = report_index.search(query, top_k)        
+            distances, indices = report_index.search(query, top_k)
+
+            query_meaning = explain_search_word(client, researh_word)     
 
         scores = distances[0]
         index = indices[0]
 
         st.success("完了")
         st.subheader("検索結果")
+        st.markdown(f"**検索語の説明:** {query_meaning}")
         for rank, (idx, score) in enumerate(zip(index, scores), start=1):
             with st.container():
                 st.markdown(f"### Rank {rank} (Score: {score:.4f})")
