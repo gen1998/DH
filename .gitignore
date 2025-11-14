@@ -1,7 +1,10 @@
-data/
-eng_to_jp.ipynb
-download_histai.ipynb
-test.ipynb
-vscode/
+# folder
+/notebook/
+/vscode/
 
 .env
+*.csv
+*.npy
+*.idx
+*.jpg
+*.json
