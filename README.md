@@ -3,7 +3,11 @@
 - 文理共創科目：デジタル・ヒューマニティーズを支えるAIの設計思想と技術
 - Collaboration across STEM and Liberal Arts:AI design concept and technology that supports digital humanities
 
-# 概要
+# アプリについて
+## 概要
+- CT, MRI画像に関する疾患について検索することで、データ上でそれに近い読影レポートを例示する
+
+## アプリ使用例
 ![アプリ使用例](data/img/example.png) 
 
 # 使い方
