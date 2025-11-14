@@ -4,6 +4,7 @@
 - Collaboration across STEM and Liberal Arts:AI design concept and technology that supports digital humanities
 
 # 概要
+![アプリ使用例](data/img/example.png) 
 
 # 使い方
 ## (1) データセットを用意する
