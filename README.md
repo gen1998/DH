@@ -7,6 +7,9 @@
 ## 概要
 - CT, MRI画像に関する疾患について検索することで、データ上でそれに近い読影レポートを例示する
 
+## 参考文献
+- [FUJIFILM 読影レポート構造化](https://www.fujifilm.com/jp/ja/news/list/12205)
+
 ## アプリ使用例
 ![アプリ使用例](data/img/example.png) 
 
